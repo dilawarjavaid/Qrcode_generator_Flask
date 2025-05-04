@@ -15,4 +15,10 @@ def index():
 
     img = qr.make_image(fill='black', back_color='white')
 
+    #Save the QR image to an in-memory buffer
+    buffer = BytesIO()
+    img.save(buffer, 'PNG')
+    buffer.seek(0)
+
+
 
