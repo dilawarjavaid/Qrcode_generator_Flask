@@ -20,5 +20,8 @@ def index():
     img.save(buffer, 'PNG')
     buffer.seek(0)
 
+    return send_file(buffer, mimetype='image/png', as_attachment=True, download_name='qrcode.png')
+
+
 
 
