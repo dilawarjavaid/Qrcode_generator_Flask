@@ -7,5 +7,12 @@ app = Flask(__name__)
 # Create the main route / with GET and POST handling
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    ...
+    text = request.form['text']
+    # Generate QR code using qrcode library
+    qr = qrcode.QRCode(version=1, box_size=10, border=5)
+    qr.add_data(text)
+    qr.make(fit=True)
+
+    img = qr.make_image(fill='black', back_color='white')
+
 
